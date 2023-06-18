@@ -34,12 +34,13 @@ def image_file_to_tensor(file):
     return pix
 
 # Training metadata
-dog, cat, elephant, cow = "dog", "cat", "elephant", "cow" # labels
+dog, cat, elephant, cow, airpod = "dog", "cat", "elephant", "cow", "airpod" # labels
 label_to_id_map = {
     "dog": 0,
     "cat": 1,
     "elephant": 2,
-    "cow": 3
+    "cow": 3,
+    "airpod": 4
 } # label to index mapping
 
 num_samples_per_class = 20
@@ -62,10 +63,11 @@ def predict(test_file, test_name):
     print_prediction(probabilities, test_name)
 
 def print_prediction(prediction, test_name):
-    print(f"test\t{dog}\t{cat}\t{elephant}\t{cow}")
+    print(f"test\t{dog}\t{cat}\t{elephant}\t{cow}\t{airpod}")
     print("-------------------------------------------------")
-    print(f"{test_name}\t{prediction[0][0][0]:.2f}\t{prediction[0][0][1]:.2f}\t{prediction[0][0][2]:.2f}\t\t{prediction[0][0][3]:.2f}")
+    print(f"{test_name}\t{prediction[0][0][0]:.2f}\t{prediction[0][0][1]:.2f}\t{prediction[0][0][2]:.2f}\t\t{prediction[0][0][3]:.2f}\t\t{prediction[0][0][4]:.2f}")
 
 
 # Test on sample image (test1.jpg)
-predict("inference_artifacts/test2.jpeg", "test2")
+# predict("inference_artifacts/test3.jpeg", "test3")
+predict("inference_artifacts/test4.png", "test4")
